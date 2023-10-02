@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Final Fantasy</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <main class="main">
+    <nav class="navbar bg-body-tertiary nav " data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand"><img src="./img/logo.png" alt="logo-final-fantasy"></a>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Busca del I al XVI" aria-label="Search">
+          <button class="btn btn-secondary" type="submit">Buscar</button>
+        </form>
+      </div>
+    </nav>
+
+    <div id="carouselExampleCaptions" class="carousel slide">
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+
+          <img src="./img/banner.jpg" class="d-block w-100" alt="banner-personajes-ff">
+          <div class="carousel-caption d-md-block">
+            <h1 class="fade-in">FINAL FANTASY</h1>
+            <p class="parrafoInicial">Sumérgete en el mundo épico y atemporal de la saga principal de Final Fantasy, donde la aventura y la
+              fantasía se entrelazan en nuestra página dedicada a esta legendaria serie de juegos de rol.</p>
+            <a href="#grid-videojuegos"><button type="button" class="btn btn-dark bn">VER MAS</button>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    </div>
+    <div class="grid-container" id="grid-videojuegos">
+      <!-- Lista de todos los videojuegos -->
+    </div>
+
+    <footer class="footer d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-dark">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24">
+            <use xlink:href="#bootstrap" />
+          </svg>
+        </a>
+        <span class="mb-3 mb-md-0 text-white">2023 &copy; SquareEnix</span>
+      </div>
+
+      <ul class="nav col-md-4 justify-content-center list-unstyled d-flex">
+<li><b>Autor: </b>Melina Pereyra</li>
+      </ul>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+  <script src="setGames.js"></script>
+</body>
+
+</html>
