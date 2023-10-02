@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const gridVideojuegos = document.getElementById("grid-videojuegos");
-  const datosVideojuegos = JSON.parse(localStorage.getItem("videojuegos"));
 
   function mostrarVideojuegos(videojuegos) {
     gridVideojuegos.innerHTML = ""; // Limpiamos el contenido actual
@@ -25,22 +24,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (datosVideojuegos) {
-    mostrarVideojuegos(datosVideojuegos.videojuegos);
-  }
+  // Usar fetch para obtener datos de videojuegos desde un archivo JSON
+  fetch("./videojuegos.json")
+    .then((response) => response.json())
+    .then((datosVideojuegos) => {
+      if (datosVideojuegos) {
+        mostrarVideojuegos(datosVideojuegos.videojuegos);
+      }
 
-  // Agregar un evento de escucha al campo de búsqueda
-  const inputBusqueda = document.querySelector('input[type="search"]');
-  inputBusqueda.addEventListener("input", () => {
-    const terminoBusqueda = inputBusqueda.value.toLowerCase();
-    const videojuegosFiltrados = datosVideojuegos.videojuegos.filter((videojuego) =>
-      videojuego.nombre.toLowerCase().includes(terminoBusqueda)
-    );
-    mostrarVideojuegos(videojuegosFiltrados);
-  });
+      // Agregar un evento de escucha al campo de búsqueda
+      const inputBusqueda = document.querySelector('input[type="search"]');
+      inputBusqueda.addEventListener("input", () => {
+        const terminoBusqueda = inputBusqueda.value.toLowerCase();
+        const videojuegosFiltrados = datosVideojuegos.videojuegos.filter((videojuego) =>
+          videojuego.nombre.toLowerCase().includes(terminoBusqueda)
+        );
+        mostrarVideojuegos(videojuegosFiltrados);
+      });
+    });
 
   function mostrarDetallesVideojuego(videojuego) {
     window.location.href = `videojuegos.html?id=${videojuego.id}`;
   }
-  
 });
