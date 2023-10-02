@@ -44,6 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   function mostrarDetallesVideojuego(videojuego) {
-    window.location.href = `videojuegos.html?id=${videojuego.id}`;
+    window.location.href = `./videojuegos.html?id=${videojuego.id}`;
   }
 });
