@@ -26,7 +26,7 @@ h1 {
     /* Sombra derecha arriba */
     -2px 2px 0 white;
   /* Sombra izquierda abajo */
-  * Propiedad para navegadores basados en Webkit (Safari, Chrome) */ text-shadow: 2px 2px 2px rgba(0, 0, 0, 1.5);
+ 
 }
 
 h2 {
