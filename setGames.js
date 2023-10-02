@@ -1,16 +1,17 @@
+// Fetch para obtener y almacenar los datos en localStorage
+fetch("./videojuegos.json")
+  .then((respuesta) => respuesta.json())
+  .then((datos) => {
+    localStorage.setItem("videojuegos", JSON.stringify(datos));
+  });
+
+// Evento que se ejecuta cuando el DOM está cargado
 document.addEventListener("DOMContentLoaded", () => {
   const gridVideojuegos = document.getElementById("grid-videojuegos");
-  let datosVideojuegos; // Definimos datosVideojuegos en un alcance más amplio
+  const inputBusqueda = document.querySelector('input[type="search"]');
+  let datosVideojuegos = JSON.parse(localStorage.getItem("videojuegos"));
 
-  // Usamos fetch para obtener datos de videojuegos desde un archivo JSON
-  fetch("./videojuegos.json")
-    .then((respuesta) => respuesta.json())
-    .then((datos) => {
-      datosVideojuegos = datos; // Asignamos los datos a la variable datosVideojuegos
-      localStorage.setItem("videojuegos", JSON.stringify(datos));
-      mostrarVideojuegos(datos.videojuegos); // Llamamos a mostrarVideojuegos aquí
-    });
-
+  // Función para mostrar videojuegos
   function mostrarVideojuegos(videojuegos) {
     gridVideojuegos.innerHTML = ""; // Limpiamos el contenido actual
     videojuegos.forEach((videojuego) => {
@@ -34,11 +35,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Agregar un evento de escucha al campo de búsqueda
-  const inputBusqueda = document.querySelector('input[type="search"]');
+  // Función para mostrar detalles de un videojuego
+  function mostrarDetallesVideojuego(videojuego) {
+    window.location.href = `videojuegos.html?id=${videojuego.id}`;
+  }
+
+  // Evento de escucha para el campo de búsqueda
   inputBusqueda.addEventListener("input", () => {
     const terminoBusqueda = inputBusqueda.value.toLowerCase();
-    if (datosVideojuegos) { // Verificamos si datosVideojuegos está definida
+    if (datosVideojuegos) {
       const videojuegosFiltrados = datosVideojuegos.videojuegos.filter((videojuego) =>
         videojuego.nombre.toLowerCase().includes(terminoBusqueda)
       );
@@ -46,7 +51,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  function mostrarDetallesVideojuego(videojuego) {
-    window.location.href = `./videojuegos.html?id=${videojuego.id}`;
+  // Mostrar videojuegos iniciales si ya se han cargado
+  if (datosVideojuegos) {
+    mostrarVideojuegos(datosVideojuegos.videojuegos);
   }
+  
 });
