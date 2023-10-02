@@ -47,7 +47,7 @@ b{
 .fade-in {
   animation: fadeIn 5s;
 
-  @media (max-width:750px) {
+  @media (max-width:768px) {
 
     font-size: 35px;
     
@@ -57,14 +57,14 @@ b{
 
 .parrafoInicial {
 
-  @media (max-width:750px) {
+  @media (max-width:768px) {
       display: none;
   }
 
 }
 
 .bn {
-  @media (max-width:750px) {
+  @media (max-width:768px) {
   display: none;
 }
 
@@ -93,7 +93,7 @@ b{
   background-color: rgba(151, 197, 219, 0.645);
   background-attachment: fixed;
 
-  @media (max-width:400px) {
+  @media (max-width:768px) {
     margin: auto ;
     
   }
@@ -183,7 +183,7 @@ b{
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
   margin: 2rem;
 
-@media (max-width:750px) {
+@media (max-width:768px) {
   min-height: 100px;
   
 }
